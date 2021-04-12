@@ -6,18 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./drag-drop.component.css'],
 })
 export class DragDropComponent {
-  files: any = [];
+  file: File;
+  imageURL: string;
 
   constructor() {}
 
   uploadFile(event): void {
-    for (let index = 0; index < event.length; index++) {
-      const element = event[index];
-      this.files.push(element.name);
-    }
-  }
-
-  deleteAttachment(index): void {
-    this.files.splice(index, 1);
+    this.file = (event.target as HTMLInputElement).files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imageURL = reader.result as string;
+    };
+    reader.readAsDataURL(this.file);
   }
 }
