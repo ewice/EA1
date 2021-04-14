@@ -1,0 +1,37 @@
+.img-container, .upload-img-container {
+  height: 230px;
+  margin: 15px 0;
+}
+
+.upload-img-container {
+   background-repeat: no-repeat;
+   background-size: 100px;
+   background-position: center;
+   border: 2px dashed #1C8ADB;
+   border-radius: 15px;
+   width: 100%;
+   &:hover {
+     cursor: pointer;
+     background-color: #9ecbec !important;
+     opacity: 0.8;
+   }
+ }
+
+.img-container img{
+    border-radius: 15px;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+#classification #active-img {
+    margin: 15px 0;
+    border-radius: 15px;
+    width: 60%;
+    height: 490px;
+    object-fit: cover;
+}
+
+.w-60 {
+  width: 60%;
+}

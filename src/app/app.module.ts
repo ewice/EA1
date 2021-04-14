@@ -2,19 +2,22 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { HomeComponent } from './home/home.component';
+import { BarChartComponent } from './gallery/components/bar-chart/bar-chart.component';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DragDropComponent } from './drag-drop/drag-drop.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DragDropComponent
+    GalleryComponent,
+    HomeComponent,
+    BarChartComponent,
   ],
-  imports: [
-    BrowserModule,
-    NgbModule
-  ],
+  imports: [BrowserModule, NgbModule, ChartsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

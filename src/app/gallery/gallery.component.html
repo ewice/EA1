@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-5">
+    <div id="gallery" class="row" *ngIf="files.length > 0">
+      <div *ngFor="let file of files" class="img-container col-6">
+        <img [src]="file" (click)="onGetClassificationClicked($event)" alt="Bild">
+      </div>
+      <div class="col-6">
+        <div class="upload-img-container" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+          <input hidden type="file" #fileInput (change)="uploadFile($event)" accept="image/png, image/jpeg">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="classification" class="col-7 d-flex flex-column align-items-center">
+    <img [src]="activeImage" *ngIf="activeImage" id="active-img" alt="Hauptbild">
+    <ng-container *ngIf="labels.length > 0 && confidences.length > 0">
+      <app-bar-chart [labels]="labels" [confidences]="confidences" class="w-60"></app-bar-chart>
+    </ng-container>
+  </div>
+</div>

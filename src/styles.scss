@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+/* Variables */
+$background: #E7EEEE;
+$green: #02AC53;
+$red: #FE4E58;
+$font: #1B1C1C;
+
+body {
+  background-color: $background;
+  font-family: 'Open Sans', sans-serif;
+  color: $font;
+  margin: 20px 80px;
+}
+
+h1, h2 {
+  font-weight: bold;
+}

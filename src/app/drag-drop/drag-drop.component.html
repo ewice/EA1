@@ -1,8 +1,0 @@
-<div class="container">
-  <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
-    <input hidden type="file" #fileInput (change)="uploadFile($event)" accept="image/png, image/jpeg">
-  </div>
-  <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
-    <img [src]="imageURL">
-  </div>
-</div>
