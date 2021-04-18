@@ -25,11 +25,11 @@ export class UploadComponent {
   constructor(private classificationService: ClassificationService) {}
 
   onFileDropped(file): void {
-    this.prepareFile(file);
+    this.isFileAImage(file);
   }
 
   fileBrowseHandler(event): void {
-    this.prepareFile((event.target as HTMLInputElement).files[0]);
+    this.isFileAImage((event.target as HTMLInputElement).files[0]);
   }
 
   prepareFile(file): void {
@@ -58,5 +58,18 @@ export class UploadComponent {
           );
         }
       });
+  }
+
+  isFileAImage(file): void {
+    const fileType = file.type;
+    if (
+      fileType.match(/image\/jpg/) == null &&
+      fileType.match(/image\/jpeg/) == null &&
+      fileType.match(/image\/png/) == null
+    ) {
+      alert('Only images (png, jpg) are supported');
+    } else {
+      this.prepareFile(file);
+    }
   }
 }

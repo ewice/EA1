@@ -11,7 +11,7 @@
       <div class="upload-img-container d-flex flex-column justify-content-center align-items-center" appDragDrop
            (fileDropped)="onFileDropped($event)"
            (click)="fileDropRef.click()">
-        <input hidden type="file" #fileDropRef id="fileDropRef" (change)="fileBrowseHandler($event)" accept="image/*"/>
+        <input hidden type="file" #fileDropRef id="fileDropRef" (change)="fileBrowseHandler($event)" accept="image/jpeg, image/png, image/jpg"/>
         <svg xmlns="http://www.w3.org/2000/svg" width="63" height="64" viewBox="0 0 63 64" fill="#ffffff">
           <path
             d="M42.656 15.135a1.953 1.953 0 0 1-1.391-.578L31.5 4.795l-9.765 9.762a1.97 1.97 0 1 1-2.785-2.785L30.106.616a1.97 1.97 0 0 1 2.785 0l11.157 11.156a1.97 1.97 0 0 1-1.392 3.363z"/>
@@ -31,13 +31,11 @@
         </div>
       </div>
     </div>
-    <div id="classification" class="col-7 position-fixed d-flex flex-column align-items-center mt-5">
-      <div class="col-7 ">
+    <div id="classification" class="col-7 d-flex flex-column align-items-center mt-5">
         <img [src]="activeImage" *ngIf="activeImage" id="active-img" alt="Hauptbild">
         <ng-container *ngIf="labels.length > 0 && confidences.length > 0">
           <app-bar-chart [labels]="labels" [confidences]="confidences" class="w-60"></app-bar-chart>
         </ng-container>
-      </div>
     </div>
   </div>
 </div>
