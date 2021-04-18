@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
 
 /* Variables */
 $background: #E7EEEE;
@@ -8,11 +8,42 @@ $font: #1B1C1C;
 
 body {
   background-color: $background;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: $font;
-  margin: 20px 80px;
 }
 
-h1, h2 {
+h1 {
+  font-size: 8em;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+button {
+  background: transparent;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-size: 0.9em;
   font-weight: bold;
+  &.primary {
+    background-color: $green;
+    color: white;
+  }
+  &.secondary {
+    border: $font solid 1px;
+  }
+}
+
+.container {
+  max-width: 1600px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.arrow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
 }

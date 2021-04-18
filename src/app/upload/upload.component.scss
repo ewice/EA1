@@ -1,0 +1,64 @@
+.img-container, .upload-img-container {
+  height: 230px;
+  margin: 15px 0;
+}
+
+.upload-img-container {
+  background-repeat: no-repeat;
+  background-size: 100px;
+  background-position: center;
+  background-color: #02AC53;
+  border: 2px solid #02AC53;
+  border-radius: 15px;
+  width: 100%;
+
+  &:hover {
+    cursor: pointer;
+    background-color: transparent !important;
+    opacity: 0.8;
+    .plus svg {
+      fill: #02AC53;
+    }
+  }
+}
+
+.img-container img {
+  border-radius: 15px;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+  cursor: pointer;
+}
+
+.selected-img {
+  border: 5px solid #02AC53;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+#classification {
+  top: 0;
+  right: 0;
+  #active-img {
+    margin: 15px 0;
+    border-radius: 15px;
+    height: 490px;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.w-60 {
+  width: 60%;
+}
+
+h1 {
+  font-size: 6em;
+}

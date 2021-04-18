@@ -5,11 +5,13 @@ import * as ml5 from 'ml5';
   providedIn: 'root',
 })
 export class ClassificationService {
-  constructor() {}
+  classifier;
+
+  constructor() {
+    this.classifier = ml5.imageClassifier('MobileNet');
+  }
 
   getClassification(image: EventTarget): Promise<any> {
-    return ml5
-      .imageClassifier('MobileNet')
-      .then((classifier) => classifier.classify(image));
+    return this.classifier.then((classifier) => classifier.classify(image));
   }
 }

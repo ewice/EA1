@@ -1,19 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ClassificationService } from '../../shared/services/classification.service';
 
 @Component({
-  selector: 'app-gallery',
-  templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.scss'],
+  selector: 'app-upload',
+  templateUrl: './upload.component.html',
+  styleUrls: ['./upload.component.scss'],
 })
-export class GalleryComponent {
+export class UploadComponent {
+  @ViewChild('images') images: ElementRef<HTMLElement>;
+
   files: string[] = [
     'assets/images/bird.png',
     'assets/images/fuchs.jpg',
     'assets/images/panda.jpg',
-    'assets/images/eichhoernchen.jpg',
+    'assets/images/loewe.jpg',
+    'assets/images/pinguin.jpg',
+    'assets/images/orka.jpg',
   ];
   activeImage: string;
+  selectedImageIndex: number;
   labels: string[] = [];
   confidences: number[] = [];
 
@@ -23,15 +28,17 @@ export class GalleryComponent {
     const file = (event.target as HTMLInputElement).files[0];
     const reader = new FileReader();
     reader.onload = () => {
-      this.files.push(reader.result as string);
+      this.files.unshift(reader.result as string);
+      this.selectedImageIndex += 1;
     };
     reader.readAsDataURL(file);
   }
 
-  onGetClassificationClicked(event): void {
-    this.activeImage = event.target.src;
+  onGetClassificationClicked(event, index: number): void {
     this.labels = [];
     this.confidences = [];
+    this.activeImage = event.target.src;
+    this.selectedImageIndex = index;
     this.classificationService
       .getClassification(event.target)
       .then((result) => {

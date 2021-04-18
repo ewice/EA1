@@ -1,0 +1,37 @@
+<div class="arrow ml-2 mt-2" routerLink="">
+  <svg xmlns="http://www.w3.org/2000/svg" height="60px" viewBox="0 0 24 24" width="60px" fill="#1B1C1C">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/>
+  </svg>
+</div>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-5">
+      <h1>Select image</h1>
+      <div class="upload-img-container position-relative" (click)="fileInput.click()" appDragDrop
+           (onFileDropped)="uploadFile($event)">
+        <div class="plus center">
+          <svg xmlns="http://www.w3.org/2000/svg" height="60px" viewBox="0 0 24 24" width="60px" fill="#ffffff">
+            <path d="M0 0h24v24H0V0z" fill="none"/>
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+          </svg>
+        </div>
+        <input hidden type="file" #fileInput (change)="uploadFile($event)" accept="image/*">
+      </div>
+      <div id="gallery" class="row" *ngIf="files.length > 0">
+        <div *ngFor="let file of files; let i = index" class="img-container col-4" #images>
+          <img [src]="file" (click)="onGetClassificationClicked($event, i)" alt="Bild"
+               [class.selected-img]="selectedImageIndex === i">
+        </div>
+      </div>
+    </div>
+    <div id="classification" class="col-7 position-fixed d-flex flex-column align-items-center mt-5">
+      <div class="col-7 ">
+        <img [src]="activeImage" *ngIf="activeImage" id="active-img" alt="Hauptbild">
+        <ng-container *ngIf="labels.length > 0 && confidences.length > 0">
+          <app-bar-chart [labels]="labels" [confidences]="confidences" class="w-60"></app-bar-chart>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
