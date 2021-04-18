@@ -7,23 +7,24 @@
   background-color: #02AC53;
   border: 2px solid #02AC53;
   border-radius: 15px;
-  width: 100%;
   color: white;
   cursor: pointer;
+  width: 100%;
 
   label {
     background: white;
-    padding: 15px 30px;
     border-radius: 10px;
+    color: #02AC53;
     font-size: 0.9em;
     font-weight: bold;
-    color: #02AC53;
+    margin-bottom: 0;
+    padding: 15px 30px;
   }
 
   &:hover {
-    cursor: pointer;
     background-color: transparent !important;
     color: #02AC53;
+    cursor: pointer;
     svg {
       fill: #02AC53;
     }
@@ -35,9 +36,9 @@
 }
 
 .drag-drop-hover {
-  cursor: pointer;
   background-color: transparent !important;
   color: #02AC53;
+  cursor: pointer;
   svg {
     fill: #02AC53;
   }
@@ -49,10 +50,10 @@
 
 .img-container img {
   border-radius: 15px;
+  cursor: pointer;
   height: 100%;
   object-fit: cover;
   width: 100%;
-  cursor: pointer;
 }
 
 .selected-img {
