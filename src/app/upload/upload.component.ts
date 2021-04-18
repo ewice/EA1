@@ -24,8 +24,15 @@ export class UploadComponent {
 
   constructor(private classificationService: ClassificationService) {}
 
-  uploadFile(event): void {
-    const file = (event.target as HTMLInputElement).files[0];
+  onFileDropped(file): void {
+    this.prepareFile(file);
+  }
+
+  fileBrowseHandler(event): void {
+    this.prepareFile((event.target as HTMLInputElement).files[0]);
+  }
+
+  prepareFile(file): void {
     const reader = new FileReader();
     reader.onload = () => {
       this.files.unshift(reader.result as string);

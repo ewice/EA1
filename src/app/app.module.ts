@@ -5,13 +5,13 @@ import { AppComponent } from './app.component';
 import { UploadComponent } from './upload/upload.component';
 import { HomeComponent } from './home/home.component';
 import { BarChartComponent } from './upload/components/bar-chart/bar-chart.component';
+import { DocumentationComponent } from './documentation/documentation.component';
+import { DragDropDirective } from '../shared/directives/drag-drop.directive';
+import { AppRoutingModule } from './app-routing.module';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ChartsModule } from 'ng2-charts';
-import { DocumentationComponent } from './documentation/documentation.component';
-import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HomeComponent,
     BarChartComponent,
     DocumentationComponent,
+    DragDropDirective,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +28,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     ChartsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
