@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ClassificationService } from '../shared/services/classification.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +7,4 @@ import { ClassificationService } from '../shared/services/classification.service
 })
 export class AppComponent {
   title = 'EA1';
-
-  constructor(private classificationService: ClassificationService) {}
 }
